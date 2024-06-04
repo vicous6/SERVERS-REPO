@@ -1,0 +1,10 @@
+2024/06/04 20:57:23 [warn] 182#182: 512 worker_connections are not enough, reusing connections
+2024/06/04 20:57:23 [alert] 182#182: 512 worker_connections are not enough
+2024/06/04 20:57:23 [error] 183#183: *1008 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost-nginx-proxy-manager, request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:80/favicon.ico", host: "jenkins.ultra-pixel-wars.com", referrer: "http://jenkins.ultra-pixel-wars.com/"
+2024/06/04 21:16:08 [warn] 316#316: 512 worker_connections are not enough, reusing connections
+2024/06/04 21:16:10 [warn] 316#316: 512 worker_connections are not enough, reusing connections
+2024/06/04 21:18:18 [error] 185#185: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 88.169.193.123, server: nginxproxymanager, request: "GET /api/tokens HTTP/1.1", upstream: "http://127.0.0.1:3000/tokens", host: "ns3043881.ip-51-255-92.eu:81", referrer: "http://ns3043881.ip-51-255-92.eu:81/nginx/proxy"
+2024/06/04 21:18:58 [error] 185#185: *27 open() "/var/www/html/simple.php" failed (2: No such file or directory), client: 85.190.242.28, server: localhost-nginx-proxy-manager, request: "GET /simple.php HTTP/1.1", host: "ultra-pixel-wars.com"
+2024/06/04 21:18:58 [error] 185#185: *27 open() "/var/www/html/class.api.php" failed (2: No such file or directory), client: 85.190.242.28, server: localhost-nginx-proxy-manager, request: "GET /class.api.php HTTP/1.1", host: "ultra-pixel-wars.com"
+2024/06/04 21:21:33 [error] 185#185: *4 connect() failed (111: Connection refused) while connecting to upstream, client: 88.169.193.123, server: nginxproxymanager, request: "GET /api/ HTTP/1.1", upstream: "http://127.0.0.1:3000/", host: "proxy-manager.ultra-pixel-wars.com", referrer: "http://proxy-manager.ultra-pixel-wars.com/nginx/proxy"
+2024/06/04 21:24:48 [error] 185#185: *168 open() "/var/www/html/.env" failed (2: No such file or directory), client: 5.180.252.74, server: localhost-nginx-proxy-manager, request: "GET /.env HTTP/1.1", host: "51.255.92.214"
