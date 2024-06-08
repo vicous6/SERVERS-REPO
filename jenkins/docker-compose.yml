@@ -4,6 +4,8 @@ services:
   jenkins:
     build: .
     container_name: jenkins
+    environment:
+      - JAVA_OPTS=-Djenkins.security.SuspiciousRequestFilter.allowSemicolonsInPath=true
     ports:
       - "8080:8080"
       - "50000:50000"
