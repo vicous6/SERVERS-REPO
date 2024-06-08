@@ -4,8 +4,8 @@ services:
   jenkins:
     build: .
     container_name: jenkins
-    environment:
-      - JAVA_OPTS=-Djenkins.security.SuspiciousRequestFilter.allowSemicolonsInPath=true
+   
+      
     ports:
       - "8080:8080"
       - "50000:50000"
@@ -15,6 +15,7 @@ services:
     environment:
       - DOCKER_HOST=tcp://dind:2375
       - DOCKER_TLS_CERTDIR=/certs
+      - JAVA_OPTS=-Djenkins.security.SuspiciousRequestFilter.allowSemicolonsInPath=true
     depends_on:
       - dind
 
