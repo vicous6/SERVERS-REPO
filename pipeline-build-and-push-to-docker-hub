@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials-id')
+        DOCKERHUB_REPO = 'vicous/projet-chaos'
+        GITHUB_REPO = 'https://github.com/vicous6/SERVERS-REPO'
+        DOCKERFILE_DIR = 'jenkins' // Specify the directory containing Dockerfile
+        HOME = "${env.WORKSPACE}"
+    }
+
+    stages {
+        stage('Check Docker') {
+            steps {
+                sh 'docker ps -a'
+                sh 'docker images'
+            }
+        }
+        stage('Build Docker Image') {
+            agent any
+            steps {
+                // Checkout the repository on the main branch
+                checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: "${GITHUB_REPO}"]]])
+                // Build the Docker image from the specified directory
+                script {
+                    docker.build("${DOCKERHUB_REPO}:${env.BUILD_NUMBER}", "${DOCKERFILE_DIR}")
+                }
+            }
+        }
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    // Push the Docker image to Docker Hub
+                    docker.withRegistry('', 'dockerhub-credentials-id') {
+                        def app = docker.image("${DOCKERHUB_REPO}:${env.BUILD_NUMBER}")
+                        app.push()
+                        app.push('latest')
+                    }
+                }
+            }
+        }
+    }
+}
