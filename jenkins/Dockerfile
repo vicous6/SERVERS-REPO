@@ -1,5 +1,5 @@
 FROM jenkins/jenkins:lts
-
+#
 # Switch to root user to install Docker
 USER root
 
