@@ -2,7 +2,7 @@ FROM jenkins/jenkins:lts
 
 # Switch to root user to install Docker
 USER root
-
+#
 # Install Docker CLI
 RUN apt-get update && \
     apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common && \
