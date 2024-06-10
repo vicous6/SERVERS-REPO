@@ -4,8 +4,6 @@ services:
   jenkins:
     build: .
     container_name: jenkins
-   
-      
     ports:
       - "8080:8080"
       - "50000:50000"
@@ -13,8 +11,6 @@ services:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
-      - DOCKER_HOST=tcp://dind:2375
-      - DOCKER_TLS_CERTDIR=/certs
       - JAVA_OPTS=-Djenkins.security.SuspiciousRequestFilter.allowSemicolonsInPath=true
     depends_on:
       - dind
@@ -22,8 +18,6 @@ services:
   dind:
     image: docker:19.03.12-dind
     privileged: true
-    environment:
-      - DOCKER_TLS_CERTDIR=/certs
     volumes:
       - dind-certs:/certs
       - dind-storage:/var/lib/docker

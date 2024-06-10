@@ -4,7 +4,7 @@ echo "boom ca lance tout"
 #!/bin/bash
 
 # List of directories
-directories=("jenkins" "portainer" "nginx-proxy-manager")
+directories=("jenkins" "portainer" "nginx-proxy-manager" "gitlab")
 
 # Loop through each directory and run docker-compose up --build
 for dir in "${directories[@]}"; do
