@@ -8,7 +8,8 @@ pipeline {
         DOCKERFILE_DIR = 'jenkins' // Specify the directory containing Dockerfile
         HOME = "${env.WORKSPACE}"
     }
-
+ 
+ 
     stages {
         stage('Check Docker') {
             steps {
